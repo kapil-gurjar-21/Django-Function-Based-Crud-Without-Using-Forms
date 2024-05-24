@@ -1,0 +1,12 @@
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="teacher_id">TeacherID</label>
+    <input type="number" name="teacher_id" value={{data1.teacher_id}}>
+    <label for="teacher_name">TeacherName</label>
+    <input type="text" name="teacher_name" value={{data1.teacher_name}}>
+    <label for="subject">Subject</label>
+    <input type="text" name="subject" value={{data1.subject}}>
+    <label for="school">School</label>
+    <input type="text" name="school" value={{data1.school}}>
+    <input type="submit" value="Submit">
+</form>

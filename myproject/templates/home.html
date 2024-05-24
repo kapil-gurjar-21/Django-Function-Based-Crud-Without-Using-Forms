@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="teacher_id">TeacherID</label>
+        <input type="number" name="teacher_id">
+        <label for="teacher_name">TeacherName</label>
+        <input type="text" name="teacher_name">
+        <label for="subject">Subject</label>
+        <input type="text" name="subject">
+        <label for="school">School</label>
+        <input type="text" name="school">
+        <input type="submit" value="Submit">
+    </form>
+        <table>
+            <tr>
+              <th>TeacherID</th>
+              <th>TeacherName</th>
+              <th>Subject</th>
+              <th>School</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+              <td>{{i.teacher_id}}</td>
+              <td>{{i.teacher_name}}</td>
+              <td>{{i.subject}}</td>
+              <td>{{i.school}}</td>
+              <td><a href="{% url  "update" id=i.teacher_id%}">Update</a></td>
+              <td><a href="{% url  "delete" id=i.teacher_id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>
